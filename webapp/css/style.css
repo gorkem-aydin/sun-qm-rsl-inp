@@ -1,0 +1,11 @@
+tr[data-mydata="Over6"] {
+    background: #F03939!important;
+}
+
+tr[data-mydata="Under6"] {
+    background: "";
+}
+
+tr[data-mydata="AfterwardsApproved"] {
+    background: "";
+}

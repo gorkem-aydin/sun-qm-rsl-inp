@@ -1,0 +1,135 @@
+<mvc:View xmlns:semantic="sap.f.semantic" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form" xmlns:commons="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:unified="sap.ui.unified" controllerName="com.sun.qm5050testresult.controller.Object">
+	<ObjectPageLayout id="objectPageLayoutTestResult" showTitleInHeaderContent="true" alwaysShowContentHeader="true"
+		preserveHeaderStateOnScroll="false" headerContentPinnable="false" isChildPage="true" enableLazyLoading="false" upperCaseAnchorBar="false"
+		showFooter="true">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle></ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<headerContent>
+			<m:FlexBox id="flexBoxReject" wrap="Wrap" fitContainer="true" alignItems="Stretch">
+				<l:VerticalLayout class="sapUiMediumMarginEnd sapUiSmallMarginTop">
+					<m:ObjectAttribute title="{i18n>serimSekli}" text="{appUtil>/SerimSekliTxt}"/>
+					<m:ObjectAttribute title="{i18n>isilIslem}" text="{appUtil>/IsilIslemTxt}"/>
+					<!--<m:ObjectAttribute title="{i18n>urunBoyu}" text="{appUtil>/UrunBoyuTxt}"/>-->
+					<m:ObjectStatus title="{i18n>urunBoyu}" text="{appUtil>/UrunBoyuTxt}" state="Warning"/>
+				</l:VerticalLayout>
+				<l:VerticalLayout class="sapUiLargeMarginEnd sapUiSmallMarginTop">
+					<m:ObjectAttribute title="{i18n>kesimSekli}" text="{appUtil>/KesimSekliTxt}"/>
+					<m:ObjectAttribute title="{i18n>utuYontemi}" text="{appUtil>/UtuYontemiTxt}"/>
+				</l:VerticalLayout>
+			</m:FlexBox>
+		</headerContent>
+		<sections>
+			<ObjectPageSection id="objectPageSectionTextResult" title="{i18n>50x50testResult}" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection id="objectPageSubSectionTextResult" title="">
+						<blocks>
+							<m:Table id="tableTestResult" width="auto" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+								growing="true" growingScrollToLoad="true" mode="SingleSelectLeft" 
+								items="{testResult>/}">
+								<!--delete="onDeleteTestResultPress"-->
+								<m:headerToolbar>
+									<m:OverflowToolbar>
+										<!--<m:Button id="buttonUpdate" icon="sap-icon://refresh" press="onButtonUpdatePress" text="{i18n>update}"/>-->
+										<!--<m:ToolbarSpacer width="25px"/>-->
+										<m:Button id="buttonTestAgain" icon="sap-icon://repost" press="onButtonTestAgainPress" text="{i18n>update}"/>
+										<m:ToolbarSpacer width="25px"/>
+										<m:Button id="buttonAdd" icon="sap-icon://add" press="onButtonAddPress" text="{i18n>add}"/>
+										<m:ToolbarSpacer width="25px"/>
+										<m:Button id="buttonDelete" icon="sap-icon://delete" press="onButtonDeletePress" text="{i18n>delete}"/>
+									</m:OverflowToolbar>
+								</m:headerToolbar>
+								<m:columns>
+									<m:Column width="5.5rem">
+										<m:Text text="{i18n>testNo}"/>
+									</m:Column>
+									<m:Column width="6.7rem">
+										<m:Text text="{i18n>testTarihi}"/>
+									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="{i18n>partiNo}"/>
+									</m:Column>
+									<m:Column width="3.5rem">
+										<m:Text text="{i18n>topNo}"/>
+									</m:Column>
+									<m:Column width="4.5rem">
+										<m:Text text="{i18n>topTestNo}"/>
+									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="{i18n>utuOncesiEn}"/>
+									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="{i18n>utuOncesiBoy}"/>
+									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="{i18n>utuSonrasiEn}"/>
+									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="{i18n>utuSonrasiBoy}"/>
+									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="{i18n>dinlendirmeSonrasiEn}"/>
+									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="{i18n>dinlendirmeSonrasiBoy}"/>
+									</m:Column>
+									<m:Column width="4.8rem">
+										<m:Text text="{i18n>farkCmEn}"/>
+									</m:Column>
+									<m:Column width="4.8rem">
+										<m:Text text="{i18n>farkCmBoy}"/>
+									</m:Column>
+									<m:Column width="4.8rem">
+										<m:Text text="{i18n>farkYuzdeEn}"/>
+									</m:Column>
+									<m:Column width="4.8rem">
+										<m:Text text="{i18n>farkYuzdeBoy}"/>
+									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="{i18n>status}"/>
+									</m:Column>
+									<m:Column width="4rem"></m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem>
+										<m:customData>
+											<core:CustomData key="mydata" value="{testResult>ColorStatus}" writeToDom="true"></core:CustomData>
+										</m:customData>
+										<m:cells>
+											<m:Text text="{testResult>TestNo}"/>
+											<m:DatePicker value="{path:'testResult>TestTarihi', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"
+												editable="{testResult>Editable}"/>
+											<m:Text text="{testResult>Charg}"/>
+											<m:Text text="{testResult>TopNo}"/>
+											<m:Text text="{testResult>TopTestNo}"/>
+											<m:Input value="{testResult>UtuOncesiEn}" type="Number" change="onInputEntryChange" editable="{testResult>Editable}"/>
+											<m:Input value="{testResult>UtuOncesiBoy}" type="Number" change="onInputEntryChange" editable="{testResult>Editable}"/>
+											<m:Input value="{testResult>UtuSonrasiEn}" type="Number" change="onInputEntryChange" editable="{testResult>Editable}"/>
+											<m:Input value="{testResult>UtuSonrasiBoy}" type="Number" change="onInputEntryChange" editable="{testResult>Editable}"/>
+											<m:Input value="{testResult>DinlenSonrasiEn}" type="Number" change="onInputEntryChange" editable="{testResult>Editable}"/>
+											<m:Input value="{testResult>DinlenSonrasiBoy}" type="Number" change="onInputEntryChange" editable="{testResult>Editable}"/>
+											<m:Text text="{testResult>FarkEnCm}"/>
+											<m:Text text="{testResult>FarkBoyCm}"/>
+											<m:Text text="{testResult>FarkEnYuzde}"/>
+											<m:Text text="{testResult>FarkBoyYuzde}"/>
+											<m:Text text="{testResult>Status}"/>
+											<m:Button text="{i18n>outOfTolerance}" visible="{=${testResult>OutOfTolerance} === 'X'? true : false}" press="onButtonOOTPress"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:OverflowToolbar>
+				<m:ToolbarSpacer/>
+				<m:Button id="buttonSave" type="Accept" text="{i18n>save}" press="onButtonSavePress"/>
+			</m:OverflowToolbar>
+		</footer>
+	</ObjectPageLayout>
+</mvc:View>

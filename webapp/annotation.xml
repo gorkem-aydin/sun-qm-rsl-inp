@@ -1,0 +1,78 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZQM_010_50X50TEST_RESULTS_ENTR_SRV/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="ZQM_010_50X50TEST_RESULTS_ENTR_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="qm5050testresult.annotation.ZQM_010_50X50TEST_RESULTS_ENTR_SRV">
+			<Annotations Target="Metadata.RecordList">
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<!--<Record Type="UI.DataField">-->
+						<!--	<PropertyValue Property="Value" Path="Vbeln"/>-->
+						<!--	<PropertyValue Property="Label" String="{@i18n&gt;VBELN}"/>-->
+						<!--</Record>-->
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="StatuTxt"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;STATUTXT}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="StokId"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;STOKID}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="XblnrMkpf"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;XBLNRMKPF}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="BudatMkpf"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;BUDATMKPF}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Vdatum"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;VDATUM}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="GkkSonuc"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;GKKSONUC}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="GkkId"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;GKKID}"/>
+						</Record>
+						<!--<Record Type="UI.DataField">-->
+						<!--	<PropertyValue Property="Value" Path="Vbeln"/>-->
+						<!--	<PropertyValue Property="Label" String="{@i18n&gt;VBELN}"/>-->
+						<!--</Record>-->
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="VbelnTotal"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;VBELNTOTAL}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Matnr"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;MATNR}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Model"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;MODEL}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Charg"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;CHARG}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Zzkumascins"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;ZZKUMASCINS}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Zztop"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;ZZTOP}"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

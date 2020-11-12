@@ -1,0 +1,33 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:semantic="sap.m.semantic" controllerName="com.sun.qm5050testresult.controller.Worklist"
+	height="100%">
+	<semantic:FullscreenPage showFooter="false">
+		<VBox fitContainer="true">
+			<smartFilterBar:SmartFilterBar id="idSmartTestResultFilterBar" initialized="onInitSmartFilter" persistencyKey="SmartFilterPKey"
+				considerSelectionVariants="true" entitySet="RecordList">
+				<smartFilterBar:controlConfiguration>
+					<smartFilterBar:ControlConfiguration key="IvLgort" preventInitialDataFetchInValueHelpDialog="false" visibleInAdvancedArea="true"
+						filterType="single" label="{i18n>lgort}">
+						<smartFilterBar:customControl>
+							<Input id="inputLgort" editable="false"></Input>
+						</smartFilterBar:customControl>
+					</smartFilterBar:ControlConfiguration>
+				</smartFilterBar:controlConfiguration>
+			</smartFilterBar:SmartFilterBar>
+			<smartTable:SmartTable showFullScreenButton="true" entitySet="RecordLists" smartFilterId="idSmartTestResultFilterBar"
+				tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true"
+				header="{i18n>resultList}" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored"
+				beforeRebindTable="onTestResultBeforeRebindTable" requestAtLeastFields="Zztop20,Lgort,Statu,Spart,Vbeln,Vbeln2,Vbeln3,Vbeln4,Vbeln5" enableAutoBinding="true"
+				class="sapUiResponsiveContentPadding" demandPopin="{= ${device>/system/desktop} ? false : true }"
+				ignoreFromPersonalisation="IvLgort,Zztop20,Lgort,Spart">
+				<!--ignoreFromPersonalisation="BolgeTxt"-->
+				<Table id="tableTestList">
+					<items>
+						<ColumnListItem type="Navigation" press="onDetailTestResult"
+							highlight="{= ${Statu} === '01' ? 'Warning' : ${Statu} === '02' ? 'Success' : 'None' }"></ColumnListItem>
+					</items>
+				</Table>
+			</smartTable:SmartTable>
+		</VBox>
+	</semantic:FullscreenPage>
+</mvc:View>
